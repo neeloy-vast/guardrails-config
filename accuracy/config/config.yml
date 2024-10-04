@@ -3,13 +3,13 @@ models:
     engine: nim
     model: meta/llama-3.1-70b-instruct
     parameters:
-      base_url: http://llama31-70b-instruct-latency.runai-genai.svc.cluster.local
+      base_url: http://llama31-70b-instruct-latency.runai-genai.svc.cluster.local/v1
 
   - type: self_check_input
     engine: nim
     model: meta/llama-3.1-8b-instruct
     parameters:
-      base_url: http://llama31-8b-instruct-latency.runai-genai.svc.cluster.local
+      base_url: http://llama31-8b-instruct-latency.runai-genai.svc.cluster.local/v1
 
 
 rails:
