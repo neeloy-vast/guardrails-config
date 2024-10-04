@@ -1,0 +1,27 @@
+models:
+  - type: main
+    engine: nvidia_ai_endpoints
+    model: meta/llama-3.1-405b-instruct
+    parameters:
+      base_url: https://integrate.api.nvidia.com/v1
+
+
+knowledge_base:
+  embedding_search_provider:
+    name: default
+    parameters:
+      embedding_engine: nvidia_ai_endpoints
+      embedding_model: nvidia/nv-embedqa-e5-v5
+      base_url: https://integrate.api.nvidia.com/v1
+      truncate: END
+
+rails:
+  output:
+    flows:
+      - self check facts
+
+instructions:
+  - type: general
+    content: |
+      You are an useful bot that reply to user questions in a useful and truthful way.
+      If the question uses harmful of violent language, the bot politely refuse to answer.
