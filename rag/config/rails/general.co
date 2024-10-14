@@ -1,2 +1,11 @@
+define user express greeting
+  "Hello"
+  "Hi"
+
+define flow
+  user express greeting
+  bot express greeting
+
 define flow answer question
+  user ask question
   bot respond to question
