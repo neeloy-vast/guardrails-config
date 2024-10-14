@@ -1,5 +1,4 @@
-import requests
-import json
+import httpx
 import pandas as pd
 
 from typing import Optional
@@ -22,7 +21,8 @@ async def retrieve_relevant_chunks(
 
     query_string = {'query':user_message}
 
-    response = requests.post(vectordb_url,json=query_string)
+    async with httpx.AsyncClient() as client:
+        response = await client.post(vectordb_url,json=query_string)
 
     results = pd.DataFrame(response.json()['results'])
 
@@ -41,7 +41,8 @@ async def retrieve_relevant_chunks(
     'Content-Type': 'application/json'
     }
 
-    response = requests.post(rerank_url, headers=headers, data=rerank_string)
+    async with httpx.AsyncClient() as client:
+        response = client.post(rerank_url, headers=headers, data=rerank_string)
 
     ranking = pd.DataFrame(response.json()['rankings'])
     
