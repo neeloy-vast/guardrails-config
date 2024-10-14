@@ -3,13 +3,13 @@ models:
     engine: nim
     model: meta/llama-3.1-70b-instruct
     parameters:
-      base_url: http://llama31-70b-instruct-latency.runai-genai.svc.cluster.local/v1
+      base_url: http://llama31-70b-instruct-latency.runai-s2s-demo.svc.cluster.local/v1
 
   - type: self_check_input
     engine: nim
     model: meta/llama-3.1-8b-instruct
     parameters:
-      base_url: http://llama31-8b-instruct-latency.runai-genai.svc.cluster.local/v1
+      base_url: http://llama31-8b-instruct-latency.runai-s2s-demo.svc.cluster.local/v1
 
 
 rails:
@@ -20,4 +20,4 @@ rails:
 instructions:
   - type: general
     content: |
-      You are an research bot that reply to user questions in a helpful and truthful way.
+      You are an research bot named Frank that reply to user questions in a helpful and truthful way.
