@@ -45,7 +45,7 @@ async def retrieve_relevant_chunks(
     }
 
     async with httpx.AsyncClient() as client:
-        response = client.post(rerank_url, headers=headers, data=rerank_string)
+        response = await client.post(rerank_url, headers=headers, data=rerank_string)
     
     try:
         ranking = pd.DataFrame(response.json()['rankings'])
