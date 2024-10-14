@@ -8,6 +8,9 @@ from nemoguardrails import LLMRails, RailsConfig
 from nemoguardrails.actions import action
 from nemoguardrails.actions.actions import ActionResult
 
+from nemoguardrails.server.api import register_datastore
+from nemoguardrails.server.datastore.memory_store import MemoryStore
+
 @action(is_system_action=True)
 async def retrieve_relevant_chunks(
     context: Optional[dict] = None
@@ -65,7 +68,9 @@ def init(llm_rails: LLMRails):
     if isinstance(llm_rails, LLMRails):
         # check that `llm_rails` is an instance of `LLMRails` as multiple libraries uses the same
         # config.py and `init` methods, e.g. FastAPI
-        config = llm_rails.config
+        # config = llm_rails.config
+
+        register_datastore(MemoryStore())
 
         # Register the custom `retrieve_relevant_chunks` for custom retrieval
         llm_rails.register_action(
