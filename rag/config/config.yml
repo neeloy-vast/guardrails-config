@@ -1,27 +1,31 @@
 models:
   - type: main
-    engine: nvidia_ai_endpoints
-    model: meta/llama-3.1-405b-instruct
+    engine: nim
+    model: meta/llama-3.1-70b-instruct
     parameters:
-      base_url: https://integrate.api.nvidia.com/v1
+      base_url: http://llama31-70b-instruct-latency.runai-genai.svc.cluster.local/v1
 
+  - type: self_check_input
+    engine: nim
+    model: meta/llama-3.1-8b-instruct
+    parameters:
+      base_url: http://llama31-8b-instruct-latency.runai-genai.svc.cluster.local/v1
 
 knowledge_base:
-  embedding_search_provider:
+  reranking_provider:
     name: default
     parameters:
-      embedding_engine: nvidia_ai_endpoints
-      embedding_model: nvidia/nv-embedqa-e5-v5
-      base_url: https://integrate.api.nvidia.com/v1
-      truncate: END
+      embedding_engine: nim
+      embedding_model: nvidia/nv-rerankqa-mistral4b-v3
+      base_url: http://mistral-4b-runai.runai-genai.svc.cluster.local/v1
 
 rails:
   output:
     flows:
       - self check facts
+      - add evidence
 
 instructions:
   - type: general
     content: |
-      You are an useful bot that reply to user questions in a useful and truthful way.
-      If the question uses harmful of violent language, the bot politely refuse to answer.
+      You are a research bot that reply to user questions in a useful and truthful way.

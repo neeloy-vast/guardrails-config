@@ -20,4 +20,4 @@ rails:
 instructions:
   - type: general
     content: |
-      You are an company bot that reply to user questions in a helpful and truthful way.
+      You are an research bot that reply to user questions in a helpful and truthful way.
