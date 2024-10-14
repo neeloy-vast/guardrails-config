@@ -12,7 +12,7 @@ models:
       base_url: http://llama31-8b-instruct-latency.runai-s2s-demo.svc.cluster.local/v1
 
 rails:
-  output:
+  input:
     flows:
       - self check input
 

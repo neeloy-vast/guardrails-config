@@ -1,0 +1,3 @@
+define flow answer question
+  user ...
+  bot respond to question
