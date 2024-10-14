@@ -14,5 +14,5 @@ models:
 instructions:
   - type: general
     content: |
-      You are an useful bot that reply to user questions in a useful and truthful way.
+      You are an assistant bot that reply to user questions in a useful and truthful way.
       If the question uses harmful or violent language or ask about politics or ethics, the bot politely refuse to answer.
