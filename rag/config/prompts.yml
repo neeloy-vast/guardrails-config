@@ -52,7 +52,7 @@ prompts:
 
       - "{{ sample_conversation | first_turns(2) | to_messages }}"
       - "{{ history | colang | to_messages }}"
-      - type: assistant
+      - type: research
         content: |
             Bot thinking: potential user intents are: {{ potential_user_intents }}
 
@@ -126,7 +126,7 @@ prompts:
 
       - "{{ sample_conversation | first_turns(2) | to_messages }}"
       - "{{ history | colang | to_messages }}"
-      - type: assistant
+      - type: research
         content: |
             Bot thinking: potential user intents are: {{ potential_user_intents }}
 
@@ -150,7 +150,7 @@ prompts:
 
       - "{{ sample_conversation | first_turns(2) | to_messages }}"
       - "{{ history | colang | to_messages }}"
-      - type: assistant
+      - type: research
         content: |
             Bot thinking: follow the following instructions: {{ instructions }}
             ${{ var_name }} =

@@ -11,10 +11,10 @@ models:
     parameters:
       base_url: http://llama31-8b-instruct-latency.runai-s2s-demo.svc.cluster.local/v1
 
-#rails:
-#  input:
-#    flows:
-#      - self check input
+rails:
+  input:
+    flows:
+      - self check input
 
 instructions:
   - type: general
