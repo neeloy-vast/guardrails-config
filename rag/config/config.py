@@ -2,6 +2,8 @@ import requests
 import json
 import pandas as pd
 
+from typing import Optional
+
 from nemoguardrails import LLMRails, RailsConfig
 from nemoguardrails.actions import action
 from nemoguardrails.actions.actions import ActionResult
