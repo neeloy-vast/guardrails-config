@@ -16,10 +16,7 @@ prompts:
           This is some relevant context:
           ```markdown
           {{ relevant_chunks }}
-          ```
-          {% else %}
-          
-          {% endif %}
+          ```{% endif %}
       - "{{ history | to_chat_messages }}"
 
   # Prompt for detecting the user message canonical form.
@@ -79,10 +76,7 @@ prompts:
             This is some relevant context:
             ```markdown
             {{ relevant_chunks }}
-            ```
-            {% else %}
-            
-            {% endif %}
+            ```{% endif %}
             Your task is to generate the bot message in a conversation given the last user message, user intent and bot intent.
             Similar to the examples below.
             Clearly state whether you received any relevant context to inform your response.
@@ -107,10 +101,7 @@ prompts:
           This is some relevant context:
           ```markdown
           {{ relevant_chunks }}
-          ```
-          {% else %}
-          
-          {% endif %}
+          ```{% endif %}
 
           Your task is to generate the user intent and the next steps in a conversation given the last user message similar to the examples below.
           Do not provide any explanations, just output the user intent and the next steps.
