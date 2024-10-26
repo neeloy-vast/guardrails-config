@@ -78,11 +78,10 @@ prompts:
             {{ relevant_chunks }}
             ```{% endif %}
             Your task is to generate the bot message in a conversation given the last user message, user intent and bot intent.
-            Similar to the examples below.
             Clearly state whether you received any relevant context to inform your response.
 
-            # Examples:
-            {{ examples | verbose_v1 }}
+            {% if relevant_chunks == None or relevant_chunks == '' %}
+            Your taks is to respond that you don't have any relevant data to answer that question.
 
       - "{{ sample_conversation | first_turns(2) | to_intent_messages_2 }}"
       - "{{ history | colang | to_intent_messages_2 }}"
