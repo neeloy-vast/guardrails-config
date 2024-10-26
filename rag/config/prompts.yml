@@ -79,7 +79,7 @@ prompts:
             ```{% endif %}
             Your task is to generate the bot message in a conversation given the last user message, user intent and bot intent.
             Similar to the examples below.
-            Clearly state whether you received any relevant context to inform your response. If the relevant context was the prompt, ignore it.
+            State the source of any relevant context to inform your response. If the relevant context was the prompt, ignore it.
 
             # Examples:
             {{ examples | verbose_v1 }}
