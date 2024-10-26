@@ -79,7 +79,7 @@ prompts:
             ```{% endif %}
             Your task is to generate the bot message in a conversation given the last user message, user intent and bot intent.
             Similar to the examples below.
-            Do not provide any explanations, just output the bot message.
+            Clearly state whether you received any relevant context to inform your response.
 
             # Examples:
             {{ examples | verbose_v1 }}
