@@ -49,7 +49,7 @@ async def retrieve_relevant_chunks(
             response = await client.post(rerank_url, headers=headers, data=rerank_string)
         try:
             ranking = pd.DataFrame(response.json()['rankings'])
-            if ranking['logit'].loc[0] > 10:
+            if ranking['logit'].loc[0] > 0:
                 citing_text = results['cleaned_text'].loc[ranking['index'].loc[0]]
                 source_ref = results['filename'].loc[ranking['index'].loc[0]]   
         except:
