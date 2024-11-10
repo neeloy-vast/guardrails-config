@@ -38,6 +38,7 @@ async def retrieve_relevant_chunks(
         middle_string = '"},{"text": "'.join(results['cleaned_text'])
         middle_string = middle_string.encode("ascii","ignore")
         middle_string = middle_string.decode()
+        middle_string = middle_string.replace('"','')
         end_string='"}],"truncate": "END"}'
         rerank_string = start_string + middle_string + end_string
         headers = {
