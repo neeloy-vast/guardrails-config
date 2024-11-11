@@ -34,6 +34,7 @@ async def retrieve_relevant_chunks(
         
     if not results.empty:
         rerank_url="http://rerankqa-mistral-4b.runai-genai.svc.cluster.local/v1/ranking"
+        user_message = user_message.replace('"','')
         start_string = '{"model": "nvidia/nv-rerankqa-mistral-4b-v3","query": {"text":"' + user_message + '"},"passages": [{"text": "'
         middle_string = '"},{"text": "'.join(results['cleaned_text'])
         middle_string = middle_string.encode("ascii","ignore")
