@@ -19,7 +19,7 @@ async def retrieve_relevant_chunks(
 
     vectordb_url="http://vectordb.runai-vast.svc.cluster.local/retrieve-chunks/"
 
-    query_string = {'query':user_message}
+    query_string = {'query':user_message, 'limit':100}
 
     async with httpx.AsyncClient() as client:
         response = await client.post(vectordb_url,json=query_string)
@@ -29,38 +29,10 @@ async def retrieve_relevant_chunks(
     except:
         pass
 
-    citing_text = ""
-    source_ref = ""
-        
-    if not results.empty:
-        rerank_url="http://rerankqa-mistral-4b.runai-genai.svc.cluster.local/v1/ranking"
-        user_message = user_message.replace('"','')
-        start_string = '{"model": "nvidia/nv-rerankqa-mistral-4b-v3","query": {"text":"' + user_message + '"},"passages": [{"text": "'
-        middle_string = '"},{"text": "'.join(results['cleaned_text'])
-        middle_string = middle_string.encode("ascii","ignore")
-        middle_string = middle_string.decode()
-        middle_string = middle_string.replace('"','')
-        end_string='"}],"truncate": "END"}'
-        rerank_string = start_string + middle_string + end_string
-        headers = {
-        'accept': 'application/json',
-        'Content-Type': 'application/json'
-        }
-        async with httpx.AsyncClient() as client:
-            response = await client.post(rerank_url, headers=headers, data=rerank_string)
-        try:
-            ranking = pd.DataFrame(response.json()['rankings'])
-            if ranking['logit'].loc[0] > 0:
-                citing_text = results['cleaned_text'].loc[ranking['index'].loc[0]]
-                source_ref = results['filename'].loc[ranking['index'].loc[0]]   
-        except:
-            pass
-
     context_updates = {
         "relevant_chunks": f"""
             Question: {user_message},
-            Citing : {citing_text},
-            Source : {source_ref}
+            Citing : {results=}
     """
     }
 

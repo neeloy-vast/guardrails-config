@@ -1,9 +1,9 @@
 models:
   - type: main
-    engine: nim
-    model: meta/llama-3.1-70b-instruct
+    engine: ai21
+    model: jamba-instruct
     parameters:
-      base_url: http://llama31-70b-instruct-latency.runai-genai.svc.cluster.local/v1
+      base_url: https://studio.ai21.com/v1
 
   - type: self_check_facts
     engine: nim
