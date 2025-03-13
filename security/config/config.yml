@@ -3,7 +3,7 @@ models:
     engine: openai
     model: meta-llama/Llama-3.1-8B-Instruct
     parameters:
-      base_url: http://stained-glass-engine-proxy.runai-genai.svc.cluster.local/v1
+      base_url: http://stained-glass-engine-proxy.runai-genai.svc.cluster.local/v1/chat/completions
 
   - type: self_check_facts
     engine: nim
