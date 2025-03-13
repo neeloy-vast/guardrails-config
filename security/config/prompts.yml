@@ -7,7 +7,7 @@ prompts:
       
   - task: general
     models:
-      - gpt-3.5-turbo-instruct
+      - gpt-4o-2024-08-06
     
     messages:
       - type: system
@@ -67,7 +67,7 @@ prompts:
   # Prompt for generating the bot message from a canonical form.
   - task: generate_bot_message
     models:
-      - gpt-3.5-turbo-instruct
+      - gpt-4o-2024-08-06
     
     messages:
       - type: system
