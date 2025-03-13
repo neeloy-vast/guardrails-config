@@ -7,7 +7,7 @@ prompts:
       
   - task: general
     models:
-      - mistral-7b-instruct
+      - gpt-3.5-turbo-instruct
     
     messages:
       - type: system
@@ -67,7 +67,7 @@ prompts:
   # Prompt for generating the bot message from a canonical form.
   - task: generate_bot_message
     models:
-      - mistral-7b-instruct
+      - gpt-3.5-turbo-instruct
     
     messages:
       - type: system
