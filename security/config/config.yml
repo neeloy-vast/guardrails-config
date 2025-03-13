@@ -1,7 +1,7 @@
 models:
   - type: main
     engine: openai
-    model: mistral-7b-instruct
+    model: meta-llama/Llama-3.1-8B-Instruct
     parameters:
       base_url: http://stained-glass-engine-proxy.runai-genai.svc.cluster.local/v1
 

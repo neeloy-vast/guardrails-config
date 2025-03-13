@@ -7,7 +7,7 @@ prompts:
       
   - task: general
     models:
-      - meta/llama-3.1-70b-instruct
+      - mistral-7b-instruct
     
     messages:
       - type: system
@@ -67,7 +67,7 @@ prompts:
   # Prompt for generating the bot message from a canonical form.
   - task: generate_bot_message
     models:
-      - meta/llama-3.1-70b-instruct
+      - mistral-7b-instruct
     
     messages:
       - type: system
