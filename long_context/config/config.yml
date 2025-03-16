@@ -1,7 +1,7 @@
 models:
   - type: main
     engine: ai21
-    model: jamba-instruct
+    model: jamba-large
     parameters:
       base_url: https://studio.ai21.com/v1
 
